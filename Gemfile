@@ -13,3 +13,7 @@ gem 'capistrano'
 gem 'hpricot'
 gem "haml"
 gem "compass"
+
+group :production do
+  gem "mysql"
+end
