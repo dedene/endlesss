@@ -3,23 +3,25 @@
   %head
     %title
       - if content_for? :title      
-        = "Endlesss Inspiration :: #{yield :title}"
+        = "Endlesss Inspiration // #{yield :title}"
       - else
-        = "Endlesss Dribbble"
+        = "Endlesss Inspiration"
     
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/  
     
-    = stylesheet_link_tag "web"    
+    = stylesheet_link_tag "screen"    
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Reenie+Beanie", :cache => true
     = javascript_include_tag :defaults    
     /[if IE]
       = javascript_include_tag "html5.js"    
     = javascript_include_tag "application.js"    
     = csrf_meta_tag
-    = yield :head    
+    = yield :head   
+     
   
-  %body#zenjoy
-    -##login
-    -#  = link_to "LOGIN", ''
+  %body
+    %header
+      %h1 Endlesss Inspiration
     #container
       = yield
           
