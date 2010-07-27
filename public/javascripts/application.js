@@ -67,8 +67,5 @@ $(document).ready(function() {
       $(this).find('.caption').fadeOut('fast');    
     }
   );
-  
-  $('.shot').hide();
-  $('.shot > img').load($(this).parent().fadeIn('slow'));
 });
 
