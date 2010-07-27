@@ -7,32 +7,7 @@
  * Released under the MIT and GPL licenses.
  */
  
-var currentPage = 1;
-
-function checkScroll() {
-  if (nearBottomOfPage()) {
-    currentPage++;
-    $.get("/dribbble?page=" + currentPage, null, null, "script");
-  } else {
-    setTimeout("checkScroll()", 250);
-  }
-}
-
-function nearBottomOfPage() {
-  return scrollDistanceFromBottom() < 150;
-}
-
-function scrollDistanceFromBottom(argument) {
-  return pageHeight() - (window.pageYOffset + self.innerHeight);
-}
-
-function pageHeight() {
-  return Math.max(document.body.scrollHeight, document.body.offsetHeight);
-}
-
 $(document).ready(function() {
-  
-  checkScroll();
   
 	$('input').each(function() {
 		  if($(this).val() === '') {
