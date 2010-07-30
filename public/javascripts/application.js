@@ -22,11 +22,13 @@ function removeBadLinks() {
 function endlessScroll(){
   if(nearBottomOfPage() && !fire) {
     fire = true;
-    url = $('.pagination a.next_page:last').attr('href');
-    if(url == "undefined" || url == "")
+    link = $('.pagination a.next_page:last');
+    
+    if(url.lengt == 0)
     {
       setTimeout("endlessScroll()",250);
     } else {
+      url = link.attr('href');      
       $('.pagination').remove();
       $('<div/>').load(url + ' .shot, .pagination',function(){ 
         $(this).children().appendTo('#container');
