@@ -82,8 +82,12 @@ body header h1 {
   font-family: "skippy-sharp-1", "Reenie Beanie", arial, serif;
   font-size: 56px;
 }
-
 /* line 32, ../../app/stylesheets/screen.sass */
+body a {
+  text-decoration: none;
+}
+
+/* line 35, ../../app/stylesheets/screen.sass */
 .shot {
   float: left;
   width: 400px;
@@ -102,22 +106,22 @@ body header h1 {
   -moz-box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
 }
-/* line 43, ../../app/stylesheets/screen.sass */
+/* line 46, ../../app/stylesheets/screen.sass */
 .shot img {
   display: block;
   margin: 0px auto;
   border: 1px solid #cccccc;
 }
-/* line 48, ../../app/stylesheets/screen.sass */
+/* line 51, ../../app/stylesheets/screen.sass */
 .shot:hover {
   background: #eeeeee;
 }
-/* line 51, ../../app/stylesheets/screen.sass */
+/* line 54, ../../app/stylesheets/screen.sass */
 .shot:hover .caption {
   display: block;
 }
 
-/* line 54, ../../app/stylesheets/screen.sass */
+/* line 57, ../../app/stylesheets/screen.sass */
 .caption {
   position: absolute;
   bottom: 0px;
@@ -140,7 +144,7 @@ body header h1 {
   border-bottom-right-radius: 6px;
   color: white;
 }
-/* line 65, ../../app/stylesheets/screen.sass */
+/* line 68, ../../app/stylesheets/screen.sass */
 .caption h1 {
   font-size: 24px;
   margin-bottom: 6px;
@@ -148,7 +152,7 @@ body header h1 {
   overflow: hidden;
 }
 
-/* line 71, ../../app/stylesheets/screen.sass */
+/* line 74, ../../app/stylesheets/screen.sass */
 .pagination {
   clear: both;
   display: block;

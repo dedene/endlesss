@@ -1,5 +1,6 @@
 .shot
-  = image_tag shot.img
-  .caption
-    %h1= shot.title
-    %p= shot.author
+  %a{:href => shot.url, :target => "_blank"}
+    = image_tag shot.img
+    .caption
+      %h1= shot.title
+      %p= shot.author
