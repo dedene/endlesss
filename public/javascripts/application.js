@@ -8,14 +8,33 @@
  */
  
 var fire = false;
+
+function removeBadLinks() {
+  $('img').each(function(){
+		if(this.readyState == 'uninitialized' || (typeof this.naturalWidth != "undefined" && this.naturalWidth == 0) ){
+			$(this).parent().remove();
+		}
+	})
+  setTimeout("removeBadLinks()",500);    	
+}
  
 function endlessScroll(){
   if(nearBottomOfPage() && !fire) {
     fire = true;
     url = $('.pagination a.next_page:last').attr('href');
+    if(url == "undefined" || url == "")
+    {
+      setTimeout("endlessScroll()",250);
+      return false;
+    }
     $('.pagination').remove();
-    $('<div/>').load(url + ' #container',function(){ 
-      $(this).appendTo('#container');
+    $('<div/>').load(url + ' .shot, .pagination',function(){ 
+      $(this).children().appendTo('#container');
+	    $('.caption').hide();       	    
+      $('.pagination').hide();	    
+      $('img:not(.loaded)').hide().load(function() {
+        $(this).fadeIn().addClass('loaded');
+      });      
       setTimeout("endlessScroll()",250);
       fire = false;
     });
@@ -25,7 +44,7 @@ function endlessScroll(){
 }
  
 function nearBottomOfPage() {
-  return scrollDistanceFromBottom() < 150;
+  return scrollDistanceFromBottom() < 350;
 }
 
 function scrollDistanceFromBottom(argument) {
@@ -62,7 +81,9 @@ $(document).ready(function() {
 		});
 		
 	$('.caption').hide();
-  
+	
+	$('.pagination').hide();
+	
   $('#container').delegate(".shot","hoverenter",
     function() {
       $(this).find('.caption').fadeIn();
@@ -71,7 +92,11 @@ $(document).ready(function() {
     function() {
       $(this).find('.caption').fadeOut('fast');    
     });
-  
+  $('#container').delegate("img","load",  
+    function() {
+      $(this).fadeIn();    
+    });
+    
   /*$('.pagination a.next_page:last').depagify({    
     container: '#container',
     filter: '.shot',
@@ -89,7 +114,13 @@ $(document).ready(function() {
     }
   });*/
   
+  
+  $('img').hide().load(function() {
+    $(this).fadeIn().addClass('loaded');
+  });
+  
   // using some custom options
-  endlessScroll();
+  setTimeout("endlessScroll()",250);  
+  setTimeout("removeBadLinks()",1000);    
 });
 
