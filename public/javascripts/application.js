@@ -25,18 +25,18 @@ function endlessScroll(){
     if(url == "undefined" || url == "")
     {
       setTimeout("endlessScroll()",250);
-      return false;
-    }
-    $('.pagination').remove();
-    $('<div/>').load(url + ' .shot, .pagination',function(){ 
-      $(this).children().appendTo('#container');
-	    $('.caption').hide();       	    
-      $('.pagination').hide();	    
-      $('img:not(.loaded)').hide().load(function() {
-        $(this).fadeIn().addClass('loaded');
-      });      
-      setTimeout("endlessScroll()",250);
-      fire = false;
+    } else {
+      $('.pagination').remove();
+      $('<div/>').load(url + ' .shot, .pagination',function(){ 
+        $(this).children().appendTo('#container');
+  	    $('.caption').hide();       	    
+        $('.pagination').hide();	    
+        $('img:not(.loaded)').hide().load(function() {
+          $(this).fadeIn().addClass('loaded');
+        });      
+        setTimeout("endlessScroll()",250);
+        fire = false;
+      }        
     });
   } else {
     setTimeout("endlessScroll()",250);
@@ -120,7 +120,7 @@ $(document).ready(function() {
   });
   
   // using some custom options
-  setTimeout("endlessScroll()",250);  
+  setTimeout("endlessScroll()",1000);  
   setTimeout("removeBadLinks()",1000);    
 });
 
