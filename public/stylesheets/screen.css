@@ -147,3 +147,9 @@ body header h1 {
   height: 26px;
   overflow: hidden;
 }
+
+/* line 71, ../../app/stylesheets/screen.sass */
+.pagination {
+  clear: both;
+  display: block;
+}

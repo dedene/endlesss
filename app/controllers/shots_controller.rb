@@ -7,7 +7,7 @@ class ShotsController < ApplicationController
       if s
         f = s.feeds.first
         @site = s       
-        @shots = f.shots.paginate :page => params[:page], :order => 'pubdate DESC'
+        @shots = f.shots.paginate :page => params[:page], :order => 'pubdate DESC', :per_page => 12
       else
         redirect_to root_url, status => 404, :layout => true        
       end
@@ -21,7 +21,7 @@ class ShotsController < ApplicationController
       s = Site.find_by_shortname(params[:site])
       if s && f = s.feeds.find_by_shortname(params[:feed])
         @site = s
-        @shots = f.shots.paginate :page => params[:page], :order => 'pubdate DESC'
+        @shots = f.shots.paginate :page => params[:page], :order => 'pubdate DESC', :per_page => 12
       else
         redirect_to root_url, status => 404, :layout => true        
       end
