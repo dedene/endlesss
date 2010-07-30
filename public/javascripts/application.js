@@ -17,7 +17,6 @@ function removeBadLinks() {
 			$(this).parent().parent().addClass('loaded');
 		}
 	})
-  setTimeout("removeBadLinks()",500);    	
 }
  
 function endlessScroll(){
@@ -37,6 +36,7 @@ function endlessScroll(){
           $(this).fadeIn().addClass('loaded');
         });      
         setTimeout("endlessScroll()",250);
+        setTimeout("removeBadLinks()",2000);            
         fire = false;
       }); 
     }        
