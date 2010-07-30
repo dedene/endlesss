@@ -36,8 +36,8 @@ function endlessScroll(){
         });      
         setTimeout("endlessScroll()",250);
         fire = false;
-      }        
-    });
+      }); 
+    }        
   } else {
     setTimeout("endlessScroll()",250);
   }
