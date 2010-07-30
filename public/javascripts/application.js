@@ -12,7 +12,9 @@ var fire = false;
 function removeBadLinks() {
   $('img').each(function(){
 		if(this.readyState == 'uninitialized' || (typeof this.naturalWidth != "undefined" && this.naturalWidth == 0) ){
-			$(this).parent().remove();
+			$(this).parent().parent().remove();
+		} else {
+			$(this).parent().parent().addClass('loaded');
 		}
 	})
   setTimeout("removeBadLinks()",500);    	
@@ -44,7 +46,7 @@ function endlessScroll(){
 }
  
 function nearBottomOfPage() {
-  return scrollDistanceFromBottom() < 350;
+  return scrollDistanceFromBottom() < 450;
 }
 
 function scrollDistanceFromBottom(argument) {
@@ -120,7 +122,7 @@ $(document).ready(function() {
   });
   
   // using some custom options
-  setTimeout("endlessScroll()",1000);  
-  setTimeout("removeBadLinks()",1000);    
+  setTimeout("endlessScroll()",500);  
+  setTimeout("removeBadLinks()",500);    
 });
 
