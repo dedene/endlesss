@@ -24,7 +24,7 @@ function endlessScroll(){
     fire = true;
     link = $('.pagination a.next_page:last');
     
-    if(url.lengt == 0)
+    if(url.length == 0)
     {
       setTimeout("endlessScroll()",250);
     } else {
