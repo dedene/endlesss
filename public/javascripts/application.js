@@ -10,7 +10,7 @@
 var fire = false;
 
 function removeBadLinks() {
-  $('img').each(function(){
+  $('img:not(.loaded)').each(function(){
 		if(this.readyState == 'uninitialized' || (typeof this.naturalWidth != "undefined" && this.naturalWidth == 0) ){
 			$(this).parent().parent().remove();
 		} else {
@@ -123,6 +123,6 @@ $(document).ready(function() {
   
   // using some custom options
   setTimeout("endlessScroll()",500);  
-  setTimeout("removeBadLinks()",500);    
+  setTimeout("removeBadLinks()",2000);    
 });
 
