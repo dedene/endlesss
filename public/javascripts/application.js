@@ -38,7 +38,6 @@ function endlessScroll(){
           $(this).fadeIn().addClass('loaded');
         });      
         setTimeout("endlessScroll()",250);
-        setTimeout("removeBadLinks()",2000);            
         fire = false;
       }); 
     }        
@@ -125,6 +124,6 @@ $(document).ready(function() {
   
   // using some custom options
   setTimeout("endlessScroll()",500);  
-  setTimeout("removeBadLinks()",2000);    
+
 });
 
